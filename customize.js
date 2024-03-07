@@ -17,6 +17,7 @@ function play(){
                                            
                                               playGround()
                                               setBgColor(playGround())
+                                              gameover
     }
 
 
@@ -63,21 +64,45 @@ setting.classList.add('bg-red-500')
 
 }
 
+// let sum = 0
+// click to game start
 function keyUpbutton(events){
     let pressKey = events.key
     // console.log(pressKey,'player presed')
     let currentAlphaBet = document.getElementById('showThePic')
     let solveAlphaBet = currentAlphaBet.innerText
-    let borochoto = solveAlphaBet.toLowerCase()
-    if(pressKey === borochoto){
-        console.log('thik ashe continue')
-        removeBg(borochoto)
-        setBgColor(playGround())
+    let small = solveAlphaBet.toLowerCase()
+    if(pressKey === small){
         
+        removeBg(small)
+        setBgColor(playGround())
+        let scoreCard = document.getElementById('score-result')
+        let sovle = scoreCard.innerText
+        let integar = parseInt(sovle)
+        let finalDec = integar +1
+        scoreCard.innerText= finalDec
+
+        let final = integar +1
+        console.log
+// sum += 1
         // console.log(setBgColor)
+        // let view= scoreCard.innerText = sum
+        // console.log(view)
         
     }else{
-        console.log('please Recorrect')
+       
+        let secondBtn = document.getElementById('minus-btn')
+        let text = secondBtn.innerText
+        let secondSolution = parseInt(text)
+        let minus = secondSolution -1
+        // secondBtn.innerText = minus
+        if( minus >= 0){
+            secondBtn.innerText = minus
+            console.log('game over')
+           
+        }
+        
+        
     }
      
 }
@@ -95,3 +120,5 @@ function removeBg(elements){
     let solveSolution = document.getElementById(elements)
     solveSolution.classList.remove('bg-red-500')
 }
+
+ 
